@@ -1,1 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>基礎數學</title>
+    <style>
+        /* CSS 樣式：美化網頁 */
+        /*
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        .button {
+            padding: 10px 20px; font-size: 16px; cursor: pointer;
+            background-color: #007BFF; color: white; border: none; border-radius: 5px;
+        }
+        */
+        /* CSS：設定計算機的外觀 */
 
+        /* Style the header */
+        header {
+          background-color: #666;
+          padding: 30px;
+          text-align: center;
+          font-size: 35px;
+          color: white;
+        }
+
+        /* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 10%;
+  height: 1200px; /* only for demonstration, should be removed */
+  /*height:auto;*/
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 90%;
+  background-color: #f1f1f1;
+  height: 800px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; margin: 0; }
+.calculator { background-color: #333; padding: 20px; border-radius: 10px; box-shadow: 0px 10px 20px rgba(0,0,0,0.3); width: 320px; }
+#display { width: 100%; height: 50px; font-size: 24px; text-align: right; margin-bottom: 10px; padding: 10px; box-sizing: border-box; border: none; background: #eee; border-radius: 5px; }
+.buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+button { padding: 20px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; transition: 0.2s; }
+button:hover { background-color: #ddd; }
+.operator { background-color: #ff9500; color: white; }
+.operator:hover { background-color: #e08400; }
+.equals { background-color: #28a745; color: white; grid-column: span 2; }
+.clear { background-color: #dc3545; color: white; grid-column: span 2; }
+
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>基礎數學</h1>
+
+</header>
+<nav>
+  <ul>
+    <li><a href="#">數與四則運算</a></li>
+  </ul>
+</nav>
+<artical>
+  <h1>數</h1>
+  <p>數字是幫助我們認知世界的重要工具，例如六隻筆比一把筆的形容更精準，最原始的計數方法就是數手指，因為大部分人手指共十個，所以使用十進位系統，也就是每當所有手指數完之後需要額外的位數來記錄。例如數實際的物品從沒有也就是 0，數１個、２個、3、４、５、６、７、８、
+    ９之後要進位到１０再到１１、１２⋯⋯等，一直數下去，這些數我們稱為自然數，不含０的剩下部分我們稱為正整數。
+  </p>
+  <h2>加法</h2>
+  <p>我們計數有時後不能一次計數完畢，需要分段計數，將所有分段計數的結果應該要和一口氣計數的結果一樣，例子１，假設有一堆蘋果先拿出２顆蘋果放在一空盒中再拿出３顆蘋果放入同一盒中，此時可數盒中有５個頻果，這和一次數５個蘋果放入空盒中一樣，我們將此敘述化簡為數學描述是「２加３等於５」，以數學符號記為２＋３＝５，其中符號＋稱為加法、符號 = 表示等於也稱作等號意思是等號左邊數字和等號右邊數字相同，這是一種操作可視為將數字２經果一操作＋３產生結果５，符號＝是指等於其代表左右兩邊數字相等，加法有交換律，即操作的左右兩邊可以對調，例如３＋２＝５＝２＋３。
+  </p>
+  <h2>減法</h2>
+  <p>減法為加法的反向操作，記為 － 。
+      由例子１可以知道２＋３＝５，可解釋為盒子中有２個蘋果從蘋果堆中拿３顆蘋果放入可得到５顆蘋果，此時從盒子中拿出３顆蘋果稱為減法，減法是加法的反操作。將盒子中有５個蘋果拿出３個蘋果剩下２個蘋果化簡為數學式５－３＝２，其中－稱為減法。將盒子中２個蘋果在操作一次拿出３顆蘋果會發現實際無法執行此操作，只能拿出２顆蘋果盒子就空了，剩下１顆沒辦法拿的蘋果只能「欠著」，我們將這個現實看不到只存在腦中的數字定義為負整數，將上述例子化簡為數學式記為２－３＝－１。減法沒有交換律，例如３－２不等於２－３。我們將自然數和負整數合併稱為整數，也就是整數包含自然數和負整數。
+  </p>
+  <h2>乘法</h2>
+  <p>連續加法即為乘法，例如３個２連加２＋２＋２可以記為２３，讀做２乘３也讀做３乘以２。
+    乘法有交換律即操作的左右兩邊可以對調，例如２３＝２＋２＋２＝６＝３＋３＝３２，另外，乘法有一特例那就是０乘任意數都是０且任意數乘０也為０。通常為了計算方便會熟記九九乘法表。
+  </p>
+  <h2>除法</h2>
+  <p>除法為乘法的反向操作，其為：
+
+    （ １－１）	被除數  除數 ＝ 商數＋餘數
+
+  ，例如２３＝６可知６除以３等於２，記為６３＝２，也讀做３除６等於２，此時６為被除數，３為除數且２為商數，另一例子７除以２等於３餘１，此時稱作不能整除且１為餘數，因為任意數乘以０都為０所以任意數除以０可為任意數，我們不能接受一個操作出現多個結果，所以不定義任意數除以０，除法沒有交換律例如６除以３不等於３除以６。
+  一個數不能整除時有三種表示方法，第一種是拆成商數和餘數，第二種是以分數的形式出現，第三種是以小數的形式表達，例２，５除以２等於商數２餘數１，分數的形式記為，小數的形式為２. 5。
+  </p>
+  <h2>分數</h2>
+  <p>分數其中Ａ為被除數也稱為分子，Ｂ為除數也稱為分母，分數之間的加法與減法並不能直接運算，只有在分母相同時才能計算分子的加法、減法，不同分母的分數變成相同分母的操作稱為通分，例如
+
+
+    因為分數的分子和分母同時乘以一樣的數時不會改變其值，故  ，另外將  分子分母同時除以４得到  此操作稱為約分，反過來將的分子分母同乘以４稱為擴分，當一分數不可再被約分時稱為最簡分數，分子小於分母時稱為真分數，例如  ，當分子大於分母時稱為假分數，例如 ，當分數前面帶有一整數稱為帶分數，例如 。當一個分數的分子和分母都是整數時我們稱此數為有理數。
+  </p>
+  <h2>小數</h2>
+  <p>我們將數字小於１的部分表示成0.1乘以某數加上0.01乘以某數加上0.001乘以某數以此類推，其中0.1代表而0.01代表以此類推，一個數除以另一個數可由長除法獲得小數，詳細作法為
+	   被除數  除數 ＝ 商數＋餘數
+     此時再將
+	    餘數  10  除數 ＝ 商數二 + 餘數二
+      可再次操作
+	     餘數二  10  除數 ＝ 商數三 + 餘數三
+       以此類推最後可得
+	      商數＋商數二  0.1＋商數三  0.01＋⋯⋯
+        例如５除以４可得１餘１，再將１乘以１０除以４可得２餘２，最後將２乘以１０除以４可得５餘０，故最後商數為 1+20.1+50.01=1.25。有時會遇到長除法除不盡但小數會以循環的方式出現，例如１除以３以長除法操作可以得到０.３３３３⋯⋯，其中小數３會無限循環此時稱此為循環小數，記為，３上方的直線代表３會一直循環。
+  </p>
+
+
+</artical>
+<footer>
+        <p>
+    <div class="calculator">
+    <!-- 顯示螢幕 -->
+    <input type="text" id="display" disabled>
+
+    <!-- 按鈕區域 -->
+    <div class="buttons">
+        <button class="clear" onclick="clearDisplay()">AC</button>
+        <button class="operator" onclick="appendToDisplay('/')">÷</button>
+        <button class="operator" onclick="appendToDisplay('*')">×</button>
+
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button class="operator" onclick="appendToDisplay('-')">-</button>
+
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button class="operator" onclick="appendToDisplay('+')">+</button>
+
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button class="equals" onclick="calculate()">=</button>
+
+        <button onclick="appendToDisplay('0')" style="grid-column: span 2;">0</button>
+
+    </div>
+</div>
+
+      </p>
+</footer>
+<script>
+    // JavaScript：處理計算邏輯
+    const display = document.getElementById('display');
+
+    function appendToDisplay(input) {
+        display.value += input;
+    }
+
+    function clearDisplay() {
+        display.value = "";
+    }
+
+    function calculate() {
+        try {
+            // 使用 eval 進行簡單計算
+            display.value = eval(display.value);
+        } catch (error) {
+            display.value = "Error";
+        }
+    }
+</script>
+
+
+
+</body>
+</html>
